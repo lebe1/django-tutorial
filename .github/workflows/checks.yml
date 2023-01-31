@@ -6,7 +6,7 @@ on: [push]
 jobs:
   test-lint:
     name: Test and lint
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: login to docker hub
@@ -14,6 +14,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          node-version: "16"
       - name: checkout
         uses: actions/checkout@v2
         with:
